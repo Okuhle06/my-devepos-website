@@ -10,61 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Deploy to EC2 via SSH
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: name: Deploy Website
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Deploy to EC2 via SSH
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: name: Deploy Website
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Deploy to EC2 via SSH
+      - name: Connect and Deploy
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: 13.49.145.183
-          username: ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd ~/auto-deploy-site
-            git pull origin main
-            sudo cp -r ~/auto-deploy-site/* /var/www/html/
-          username: ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd ~/auto-deploy-site
-            git pull origin main
-            sudo cp -r ~/auto-deploy-site/* /var/www/html/
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
