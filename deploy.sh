@@ -1,13 +1,7 @@
 #!/bin/bash
 
-echo "Pulling latest code from GitHub..."
+echo "Deploying..."
 
-cd ~/auto-deploy-site
+sudo cp -r ~/mywebsite/* /var/www/html/
 
-git pull origin main
-
-echo "Deploying website..."
-
-sudo cp -r ~/auto-deploy-site/* /var/www/html/
-
-echo "Deployment complete!"
+echo "Done"
